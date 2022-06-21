@@ -1,4 +1,4 @@
-
+#code needed to bring in lst1 and lst2 data from CSV files
 
 lst1 = [[100, 140, "nknknknknk", "want-lst1[0]"], [250, 295, "okokokok", "want-lst1[1]"], [380, 429, "uhuhuhuhu", "want-lst1[2]"], [1000, 1050, "trdtrdtd", "want-lst1[3]"]]
 lst2 = [[50, 90, "ewaewaewae", "want-lst2[0]"], [280, 329, "mnmnmnmn", "OL-lst2[1]"], [333, 375, "uyguyguyg", "want-lst2[2]"], [425, 471, "resresres", "OL-lst2[3]"], [500, 555, "pokpokpok", "want-lst2[4]"]]
@@ -9,6 +9,7 @@ def OL_screener(lst1, lst2):
         if lst2[i][1] < lst1[0][0]:
             lst3.append(lst2[i])
     for a in range(len(lst1)):
+        lst3.append(lst1[a])
         for b in range(len(lst2)):
             if lst2[b][0] > lst1[a][1]:
                 if (a+1) < len(lst1):
@@ -18,7 +19,8 @@ def OL_screener(lst1, lst2):
                     lst3.append(lst2[b])
 
 OL_screener(lst1, lst2)
-print(lst3)
+for i in range(len(lst3)):
+    print(str(lst3[i]))
 
 #for a in range(len(lst1)):
 #    for b in range(len(lst2)):
