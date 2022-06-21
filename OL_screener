@@ -1,10 +1,12 @@
-lst1 = [[100, 140, "nknknknknknknknkn", "A0"], [250, 295, "okokokokokokok", "A1"], [380, 429, "uhuhuhuhuhuhuhuh", "A2"]]
-lst2 = [[280, 329, "mnmnmnmnmnmnmnmn", "B0"], [425, 471, "resresresresres", "B1"], [500, 555, "pokpokpokpokpokpok", "B2"]]
+
+
+lst1 = [[100, 140, "nknknknknk", "want-lst1[0]"], [250, 295, "okokokok", "want-lst1[1]"], [380, 429, "uhuhuhuhu", "want-lst1[2]"], [1000, 1050, "trdtrdtd", "want-lst1[3]"]]
+lst2 = [[50, 90, "ewaewaewae", "want-lst2[0]"], [280, 329, "mnmnmnmn", "OL-lst2[1]"], [333, 375, "uyguyguyg", "want-lst2[2]"], [425, 471, "resresres", "OL-lst2[3]"], [500, 555, "pokpokpok", "want-lst2[4]"]]
 lst3 = []
 
 def OL_screener(lst1, lst2):
     for i in range(len(lst2)):
-        while lst2[i][1] < lst1[0][0]:
+        if lst2[i][1] < lst1[0][0]:
             lst3.append(lst2[i])
     for a in range(len(lst1)):
         for b in range(len(lst2)):
