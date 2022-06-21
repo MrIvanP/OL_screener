@@ -1,23 +1,36 @@
-#code needed to bring in lst1 and lst2 data from CSV files
+#the items in the hardcoded mock lists below follow this format:
+#[(oligo start coordinate), (oligo end coordinate), (bp sequence), (script testing info)]
+#it is assumed that lst1 oligos are to be included in the final list, lst3
+#when there are overlapping oligos, lst2 oligos are excluded from lst3
 
-lst1 = [[100, 140, "nknknknknk", "want-lst1[0]"], [250, 295, "okokokok", "want-lst1[1]"], [380, 429, "uhuhuhuhu", "want-lst1[2]"], [1000, 1050, "trdtrdtd", "want-lst1[3]"]]
+#code still needed here to bring in lst1 and lst2 data from outside files
+
+lst1 = [[100, 140, "nknknknknk", "want-lst1[0]"], [250, 295, "okokokok", "want-lst1[1]"], [380, 429, "uhuhuhuhu", "want-lst1[2]"], [1000, 1050, "trdtrdtd", "want-lst1[3]"], [2000, 2050, "bvcbvcbvc", "want-lst1[4]"]]
 lst2 = [[50, 90, "ewaewaewae", "want-lst2[0]"], [280, 329, "mnmnmnmn", "reject-lst2[1]"], [333, 375, "uyguyguyg", "want-lst2[2]"], [425, 471, "resresres", "reject-lst2[3]"], [500, 555, "pokpokpok", "want-lst2[4]"]]
 lst3 = []
 
 def OL_screener(lst1, lst2):
+#this checks for lst2 items occurring prior to first lst1 item
     for i in range(len(lst2)):
         if lst2[i][1] < lst1[0][0]:
             lst3.append(lst2[i])
     for a in range(len(lst1)):
+#this ensures all lst1 items get appended into lst3
         lst3.append(lst1[a])
         for b in range(len(lst2)):
+#if the current lst2 oligo starts after the current lst1 oligo...
             if lst2[b][0] > lst1[a][1]:
                 if (a+1) < len(lst1):
+#...and it ends before the next lst1 oligo begins, then append to lst3
                     if lst2[b][1] < lst1[a + 1][0]:
                         lst3.append(lst2[b])
+#this last piece ensures any lst2 items that come after the last lst1 item also get appended
                 else:
                     lst3.append(lst2[b])
 
+#code still needed here to output lst3 to an outside files
+
+#test print:
 OL_screener(lst1, lst2)
 for i in range(len(lst3)):
     print(str(lst3[i]))
