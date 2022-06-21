@@ -6,13 +6,15 @@ def OL_screener(lst1, lst2):
     for i in range(len(lst2)):
         while lst2[i][1] < lst1[0][0]:
             lst3.append(lst2[i])
+#first few lines: append into lst3 any lst2 oligos that end before the start of the first lst1 oligo starts
     for a in range(len(lst1)):
         for b in range(len(lst2)):
             if lst2[b][0] > lst1[a][1]:
                 x = 1
+                print(str(a+x))
                 if lst2[b][1] < lst1[a + x][0]:
                     lst3.append(lst2[b])
-                    x += 1
+                    print(lst3)
 OL_screener(lst1, lst2)
 print(lst3)
 
