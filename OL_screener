@@ -1,7 +1,7 @@
 #code needed to bring in lst1 and lst2 data from CSV files
 
 lst1 = [[100, 140, "nknknknknk", "want-lst1[0]"], [250, 295, "okokokok", "want-lst1[1]"], [380, 429, "uhuhuhuhu", "want-lst1[2]"], [1000, 1050, "trdtrdtd", "want-lst1[3]"]]
-lst2 = [[50, 90, "ewaewaewae", "want-lst2[0]"], [280, 329, "mnmnmnmn", "OL-lst2[1]"], [333, 375, "uyguyguyg", "want-lst2[2]"], [425, 471, "resresres", "OL-lst2[3]"], [500, 555, "pokpokpok", "want-lst2[4]"]]
+lst2 = [[50, 90, "ewaewaewae", "want-lst2[0]"], [280, 329, "mnmnmnmn", "reject-lst2[1]"], [333, 375, "uyguyguyg", "want-lst2[2]"], [425, 471, "resresres", "reject-lst2[3]"], [500, 555, "pokpokpok", "want-lst2[4]"]]
 lst3 = []
 
 def OL_screener(lst1, lst2):
@@ -21,8 +21,3 @@ def OL_screener(lst1, lst2):
 OL_screener(lst1, lst2)
 for i in range(len(lst3)):
     print(str(lst3[i]))
-
-#for a in range(len(lst1)):
-#    for b in range(len(lst2)):
-#        if (lst2[b][0] > (lst1[a][0] - 50) and lst1[a][1] > (lst2[b][1] - 50)):
-#            print(lst1[a][3] + " - " + lst2[b][3])
