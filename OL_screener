@@ -1,0 +1,22 @@
+lst1 = [[100, 140, "nknknknknknknknkn", "A0"], [250, 295, "okokokokokokok", "A1"], [380, 429, "uhuhuhuhuhuhuhuh", "A2"]]
+lst2 = [[280, 329, "mnmnmnmnmnmnmnmn", "B0"], [425, 471, "resresresresres", "B1"], [500, 555, "pokpokpokpokpokpok", "B2"]]
+lst3 = []
+
+def OL_screener(lst1, lst2):
+    for i in range(len(lst2)):
+        while lst2[i][1] < lst1[0][0]:
+            lst3.append(lst2[i])
+    for a in range(len(lst1)):
+        for b in range(len(lst2)):
+            if lst2[b][0] > lst1[a][1]:
+                x = 1
+                if lst2[b][1] < lst1[a + x][0]:
+                    lst3.append(lst2[b])
+                    x += 1
+OL_screener(lst1, lst2)
+print(lst3)
+
+#for a in range(len(lst1)):
+#    for b in range(len(lst2)):
+#        if (lst2[b][0] > (lst1[a][0] - 50) and lst1[a][1] > (lst2[b][1] - 50)):
+#            print(lst1[a][3] + " - " + lst2[b][3])
