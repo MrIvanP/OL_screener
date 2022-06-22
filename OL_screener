@@ -5,7 +5,25 @@
 
 #code still needed here to bring in lst1 and lst2 data from outside files
 
-lst1 = [[100, 140, "nknknknknk", "want-lst1[0]"], [250, 295, "okokokok", "want-lst1[1]"], [380, 429, "uhuhuhuhu", "want-lst1[2]"], [1000, 1050, "trdtrdtd", "want-lst1[3]"], [2000, 2050, "bvcbvcbvc", "want-lst1[4]"]]
+import xlwings as xw
+
+wb1a = xw.Book('test_a.xlsx')
+sht1a = wb1a.sheets['Sheet1']
+test1_start_coords = sht1a.range('B7:B14').value
+test1_end_coords = sht1a.range('C7:C14').value
+test1_seqs = sht1a.range('H7:H14').value
+
+wb2a = xw.Book('test_b.xlsx')
+sht2a = wb2a.sheets('Sheet1')
+test2_start_coords = sht2a.range('B7:B14').value
+test2_end_coords = sht2a.range('C7:C14').value
+test2_seqs = sht2a.range('H7:H14').value
+
+print(test1_start_coords)
+print(test1_end_coords)
+print(test1_seqs)
+
+lst1 = 0
 lst2 = [[50, 90, "ewaewaewae", "want-lst2[0]"], [280, 329, "mnmnmnmn", "reject-lst2[1]"], [333, 375, "uyguyguyg", "want-lst2[2]"], [425, 471, "resresres", "reject-lst2[3]"], [500, 555, "pokpokpok", "want-lst2[4]"]]
 lst3 = []
 
@@ -31,6 +49,6 @@ def OL_screener(lst1, lst2):
 #code still needed here to output lst3 to an outside files
 
 #test print:
-OL_screener(lst1, lst2)
-for i in range(len(lst3)):
-    print(str(lst3[i]))
+#OL_screener(lst1, lst2)
+#for i in range(len(lst3)):
+#    print(str(lst3[i]))
